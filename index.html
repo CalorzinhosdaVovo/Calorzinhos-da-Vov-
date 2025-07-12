@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorzinho da Vovó - Bolsas Térmicas Artesanais</title>
+    <style>
+        /* Variáveis de cores */
+        :root {
+            --primary: #FF9933;
+            --secondary: #663300;
+            --accent: #FF6633;
+            --light: #FFF3E0;
+            --dark: #331A00;
+            --blue: #336699;
+            --white: #FFFFFF;
+            --gray: #F5F5F5;
+        }
+
+        /* Reset e estilos gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255, 153, 51, 0.8), rgba(255, 153, 51, 0.8)), url('images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero .btn {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        .hero .btn:hover {
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+
+        /* Benefícios */
+        .benefits {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .benefits-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: var(--gray);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        /* Produtos */
+        .products {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .product-info p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .product-colors {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .color-option {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 5px;
+            cursor: pointer;
+            border: 2px solid #ddd;
+        }
+
+        .color-black { background-color: #333; }
+        .color-navy { background-color: #003366; }
+        .color-green { background-color: #006633; }
+        .color-red { background-color: #CC0000; }
+        .color-purple { background-color: #660099; }
+        .color-brown { background-color: #663300; }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        /* Sobre Nós */
+        .about {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-content h2 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+        }
+
+        .sustainability {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: var(--light);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .sustainability h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        /* Depoimentos */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 5rem;
+            color: var(--primary);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .author-info h4 {
+            color: var(--secondary);
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Contato */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            margin-right: 15px;
+        }
+
+        .social-links {
+            display: flex;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .contact-form {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .footer-logo h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4, .footer-contact h4, .footer-newsletter h4 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: var(--white);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary);
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        .footer-newsletter p {
+            margin-bottom: 15px;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .newsletter-form button {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background-color: var(--white);
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+                padding: 20px 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Calorzinho da Vovó Logo">
+                <h1>Calorzinho da Vovó</h1>
+            </div>
+            <div class="mobile-toggle">☰</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Produtos</a></li>
+                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="#how-to-use">Como Usar</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2>A bolsa térmica que cuida de você e daqueles que você ama</h2>
+            <p>Feita artesanalmente com grãos de trigo selecionados para proporcionar alívio, conforto e bem-estar nos dias frios.</p>
+            <a href="#products" class="btn">Conheça nossos produtos</a>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Benefícios</h2>
+                <p>Por que escolher o Calorzinho da Vovó?</p>
+            </div>
+            <div class="benefits-container">
+                <div class="benefit-card">
+                    <div class="benefit-icon">❤️</div>
+                    <h3>Alívio de Dores</h3>
+                    <p>Proporciona alívio natural para dores musculares, tensões e desconfortos.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌿</div>
+                    <h3>Materiais Naturais</h3>
+                    <p>Feita com grãos de trigo selecionados e tecidos reaproveitados.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧘</div>
+                    <h3>Relaxamento</h3>
+                    <p>Promove relaxamento e bem-estar, ajudando a reduzir o estresse.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">♻️</div>
+                    <h3>Sustentável</h3>
+                    <p>Capas confeccionadas com tecidos reaproveitados, cada peça é única!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produtos -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Produtos</h2>
+                <p>Conheça nossas bolsas térmicas artesanais</p>
+            </div>
+            <div class="products-container">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product-1.jpg" alt="Bolsa Térmica Cervical">
+                    </div>
+                    <div class="product-info">
+                        <h3>Bolsa Térmica Cervical</h3>
+                        <p>Ideal para região do pescoço e ombros, aliviando tensões e dores.</p>
+                        <div class="product-colors">
+                            <span class="color-option color-black" title="Preto"></span>
+                            <span class="color-option color-navy" title="Azul Marinho"></span>
+                            <span class="color-option color-green" title="Verde"></span>
+                            <span class="color-option color-red" title="Vermelho"></span>
+                            <span class="color-option color-purple" title="Roxo"></span>
+                            <span class="color-option color-brown" title="Marrom"></span>
+                        </div>
+                        <div class="product-price">R$ 89,90</div>
+                        <a href="#contact" class="btn">Comprar</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product-2.jpg" alt="Bolsa Térmica Retangular">
+                    </div>
+                    <div class="product-info">
+                        <h3>Bolsa Térmica Retangular</h3>
+                        <p>Versátil, pode ser usada em diversas partes do corpo para alívio de dores.</p>
+                        <div class="product-colors">
+                            <span class="color-option color-black" title="Preto"></span>
+                            <span class="color-option color-navy" title="Azul Marinho"></span>
+                            <span class="color-option color-green" title="Verde"></span>
+                            <span class="color-option color-red" title="Vermelho"></span>
+                            <span class="color-option color-purple" title="Roxo"></span>
+                            <span class="color-option color-brown" title="Marrom"></span>
+                        </div>
+                        <div class="product-price">R$ 69,90</div>
+                        <a href="#contact" class="btn">Comprar</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product-3.jpg" alt="Bolsa Térmica Lombar">
+                    </div>
+                    <div class="product-info">
+                        <h3>Bolsa Térmica Lombar</h3>
+                        <p>Especialmente desenvolvida para região lombar, proporcionando alívio e conforto.</p>
+                        <div class="product-colors">
+                            <span class="color-option color-black" title="Preto"></span>
+                            <span class="color-option color-navy" title="Azul Marinho"></span>
+                            <span class="color-option color-green" title="Verde"></span>
+                            <span class="color-option color-red" title="Vermelho"></span>
+                            <span class="color-option color-purple" title="Roxo"></span>
+                            <span class="color-option color-brown" title="Marrom"></span>
+                        </div>
+                        <div class="product-price">R$ 99,90</div>
+                        <a href="#contact" class="btn">Comprar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sobre Nós</h2>
+                <p>Conheça nossa história e valores</p>
+            </div>
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="images/about.jpg" alt="Sobre o Calorzinho da Vovó">
+                </div>
+                <div class="about-content">
+                    <h2>Nossa História</h2>
+                    <p>O Calorzinho da Vovó nasceu da tradição familiar de utilizar bolsas de sementes para aliviar dores e proporcionar conforto térmico. O que começou como um remédio caseiro transmitido de geração em geração, hoje se transformou em um produto artesanal de qualidade.</p>
+                    <p>Cada bolsa térmica é confeccionada com carinho e atenção aos detalhes, mantendo a essência do cuidado que só uma avó sabe oferecer. Nosso objetivo é levar esse abraço quente para mais lares, proporcionando bem-estar e alívio de forma natural.</p>
+                    
+                    <div class="sustainability">
+                        <h3>Compromisso com a Sustentabilidade</h3>
+                        <p>Utilizamos tecidos reaproveitados de sobras de costura para confeccionar as capas das nossas bolsas térmicas. Cada peça é única, com padrões e cores variadas, reduzindo o desperdício e contribuindo para um mundo mais sustentável.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Usar -->
+    <section class="how-to-use" id="how-to-use" style="padding: 80px 0; background-color: var(--light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Como Usar</h2>
+                <p>Instruções para aproveitar ao máximo sua bolsa térmica</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div style="background-color: var(--white); padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--secondary); margin-bottom: 20px;">Uso Quente</h3>
+                    <ol style="padding-left: 20px;">
+                        <li style="margin-bottom: 15px;">Aqueça no micro-ondas por 1 a 2 minutos (dependendo da potência)</li>
+                        <li style="margin-bottom: 15px;">Verifique a temperatura antes de aplicar na pele</li>
+                        <li style="margin-bottom: 15px;">Aplique na área desejada por até 20 minutos</li>
+                        <li style="margin-bottom: 15px;">Ideal para dores musculares, tensão e relaxamento</li>
+                    </ol>
+                </div>
+                <div style="background-color: var(--white); padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--secondary); margin-bottom: 20px;">Uso Frio</h3>
+                    <ol style="padding-left: 20px;">
+                        <li style="margin-bottom: 15px;">Coloque a bolsa no freezer por 1 a 2 horas</li>
+                        <li style="margin-bottom: 15px;">Envolva em um pano fino antes de aplicar</li>
+                        <li style="margin-bottom: 15px;">Aplique na área desejada por até 15 minutos</li>
+                        <li style="margin-bottom: 15px;">Ideal para inflamações, inchaços e dores agudas</li>
+                    </ol>
+                </div>
+                <div style="background-color: var(--white); padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--secondary); margin-bottom: 20px;">Cuidados</h3>
+                    <ul style="padding-left: 20px;">
+                        <li style="margin-bottom: 15px;">Use em micro-ondas limpo para evitar odores</li>
+                        <li style="margin-bottom: 15px;">Não lave a bolsa térmica, apenas a capa externa</li>
+                        <li style="margin-bottom: 15px;">Armazene em local seco e arejado</li>
+                        <li style="margin-bottom: 15px;">Em caso de umidade, deixe secar naturalmente</li>
+                        <li style="margin-bottom: 15px;">Evite superaquecer para não danificar os grãos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Depoimentos</h2>
+                <p>O que nossos clientes dizem</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Comprei para minha mãe que sofre com dores no pescoço. Ela adorou! A qualidade do produto é excelente e o alívio é imediato. Recomendo a todos!"</p>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-1.jpg" alt="Maria Silva">
+                        <div class="author-info">
+                            <h4>Maria Silva</h4>
+                            <p>Cliente desde 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Uso a bolsa térmica todos os dias após o trabalho. É perfeita para relaxar e aliviar o estresse. O acabamento é impecável e o tecido muito macio."</p>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-2.jpg" alt="João Santos">
+                        <div class="author-info">
+                            <h4>João Santos</h4>
+                            <p>Cliente desde 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Presenteei meus avós com as bolsas térmicas e eles não param de agradecer! É um produto que realmente faz diferença na qualidade de vida deles."</p>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-3.jpg" alt="Ana Oliveira">
+                        <div class="author-info">
+                            <h4>Ana Oliveira</h4>
+                            <p>Cliente desde 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contato</h2>
+                <p>Entre em contato conosco</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <p>(XX) XXXXX-XXXX</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <p>contato@calorzinhodavovo.com.br</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <p>Cidade, Estado - Brasil</p>
+                        </div>
+                    </div>
+                    <h3>Redes Sociais</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">📸</a>
+                        <a href="#" class="social-link">📱</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Assunto</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo-white.png" alt="Calorzinho da Vovó Logo">
+                        <h3>Calorzinho da Vovó</h3>
+                    </div>
+                    <p>Bolsas térmicas artesanais feitas com grãos de trigo selecionados e tecidos reaproveitados, proporcionando alívio, conforto e bem-estar.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Produtos</a></li>
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="#how-to-use">Como Usar</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <p>📱 (XX) XXXXX-XXXX</p>
+                    <p>✉️ contato@calorzinhodavovo.com.br</p>
+                    <p>📍 Cidade, Estado - Brasil</p>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Inscreva-se para receber novidades e promoções exclusivas.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Seu email">
+                        <button type="submit">→</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Calorzinho da Vovó. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                navMenu.classList.remove('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
